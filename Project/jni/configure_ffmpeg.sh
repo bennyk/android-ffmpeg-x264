@@ -1,9 +1,11 @@
 #!/bin/bash
 pushd `dirname $0`
+topdir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
 . settings.sh
 
 # enable minimal featureset
-minimal_featureset = 0
+minimal_featureset=0
 
 if [[ $minimal_featureset == 1 ]]; then
   echo "Using minimal featureset"
@@ -22,6 +24,7 @@ fi
 
 pushd ffmpeg
 
+export PKG_CONFIG_PATH=$topdir/out/${ARCH}/lib/pkgconfig
 ./configure $DEBUG_FLAG --enable-cross-compile \
 --arch=$ARCH \
 --enable-armv5te \
@@ -40,7 +43,7 @@ $featureflags \
 --disable-ffplay \
 --disable-ffprobe \
 --disable-ffserver \
---disable-network \
+--enable-librtmp \
 --enable-filter=buffer \
 --enable-filter=buffersink \
 --disable-demuxer=v4l \
@@ -51,6 +54,7 @@ $featureflags \
 --cross-prefix=$CROSS_PREFIX \
 --extra-cflags="-I../x264 -Ivideokit" \
 --extra-libs="$LIBGCC_STATIC_LIB -lc -ldl" \
---extra-ldflags="-L../x264"
+--extra-ldflags="-L../x264" \
+--pkg-config=$(which pkg-config)
 
 popd; popd

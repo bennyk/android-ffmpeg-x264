@@ -1,0 +1,12 @@
+prefix=/Users/bennykhoo/Sources/MyVR/android-ffmpeg-x264/Project/jni/out/x86
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: OpenSSL
+Description: Secure Sockets Layer and cryptography libraries
+Version: 1.0.1j
+Requires: 
+Libs: -L${libdir} -lssl -lcrypto
+Libs.private: -L${libdir}  -lz
+Cflags: -I${includedir} 

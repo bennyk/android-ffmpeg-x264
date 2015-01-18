@@ -4,3 +4,9 @@
 [submodule "ffmpeg"]
 	path = Project/jni/ffmpeg
 	url = git://git.videolan.org/ffmpeg.git
+[submodule "Project/jni/openssl-android"]
+	path = Project/jni/openssl-android
+	url = https://github.com/guardianproject/openssl-android
+[submodule "Project/jni/rtmpdump"]
+	path = Project/jni/rtmpdump
+	url = git://git.ffmpeg.org/rtmpdump
