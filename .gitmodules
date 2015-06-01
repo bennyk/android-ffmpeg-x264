@@ -9,4 +9,4 @@
 	url = https://github.com/bennyk/openssl-android
 [submodule "Project/jni/rtmpdump"]
 	path = Project/jni/rtmpdump
-	url = git://git.ffmpeg.org/rtmpdump
+	url = https://github.com/bennyk/rtmpdump 
